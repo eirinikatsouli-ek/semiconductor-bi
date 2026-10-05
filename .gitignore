@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# SimFin downloaded / derived data
+data/raw/
+data/processed/
+data/simfin_cache/
+
+# Power BI temporary files
+*.tmp
