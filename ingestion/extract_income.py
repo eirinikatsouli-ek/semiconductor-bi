@@ -20,20 +20,7 @@ income = sf.load_income(
     market="us"
 )
 
-
-tickers = ["NVDA", "AMD", "QCOM", "INTC"]
-
-semiconductor_income = income[
-    income.index.get_level_values(0).isin(tickers)
-]
-
-
-print(semiconductor_income.head())
-print()
-print(semiconductor_income.columns.tolist())
-
-
-semiconductor_income.reset_index().to_csv(
-    "data/raw/income_annual_semiconductors.csv",
-    index=False
-)
+print(type(income))
+print(income.shape)
+print(income.head())
+print(income.index.names)
