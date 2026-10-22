@@ -30,3 +30,24 @@ print(df[duplicates][["Ticker", "Fiscal Year", "Report Date"]])
 print("\n--- missing values ---")
 missing = df.isna().sum()
 print(missing[missing > 0].sort_values(ascending=False))
+
+key_columns = [
+    "Revenue",
+    "Cost of Revenue",
+    "Gross Profit",
+    "Operating Expenses",
+    "Research & Development",
+    "Operating Income (Loss)",
+    "Net Income"
+]
+
+print("\n--- KEY FINANCIAL FIELDS: MISSING VALUES ---")
+print(df[key_columns].isna().sum())
+
+print("\n--- KEY FINANCIAL DATA BY COMPANY AND YEAR ---")
+print(
+    df[
+        ["Ticker", "Fiscal Year"] + key_columns
+    ].sort_values(["Ticker", "Fiscal Year"])
+    .to_string(index=False)
+)
